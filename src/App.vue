@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <SearchComponent/>
+  <CountrySearchComponent/>
 </template>
 
 <script>
-import SearchComponent from './components/SearchComponent.vue'
+import CountrySearchComponent from './components/CountrySearchComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    SearchComponent
+    CountrySearchComponent
   }
 }
 </script>
