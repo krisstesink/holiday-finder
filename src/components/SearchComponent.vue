@@ -26,7 +26,7 @@
             :key="`item-${index}`"
             @click="selectItem(item)"
           >
-            {{ item }}
+            {{ item.name }}
           </li>
         </ul>
       </div>
@@ -64,24 +64,24 @@ export default {
     };
   },
   computed: {
-    filteredItems() {
-      const query = this.searchQuery.toLowerCase().trim();
-      if (query === "") {
-        return this.items;
-      }
-      return this.items.filter((item) =>
-        item.toLowerCase().includes(query)
-      );
+        filteredItems() {
+            const query  = this.searchQuery.toLowerCase();
+            if (this.searchQuery === "") {
+                return this.items;
+            }
+            return this.items.filter((item) => {
+                return Object.values(item).some((word) => String(word).toLowerCase().includes(query));
+            });
+        },
     },
-  },
   methods: {
     toggleDropdown() {
       this.isVisible = !this.isVisible;
     },
     selectItem(item) {
-      this.selectedItem = item;
+      this.selectedItem = item.name;
       this.isVisible = false;
-      this.$emit("itemSelected", item); // Emit the selected item
+      this.$emit("itemSelected", item); 
     },
   },
 };
