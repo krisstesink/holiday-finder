@@ -22,7 +22,7 @@
     </div>
     <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
       <input v-model="searchQuery" type="text" :placeholder="searchPlaceholder" />
-      <span v-if="filteredItems.length === 0">{{ emptyMessage }}</span>
+      <span v-if="filteredItems.length === 0"> <br><br> {{ emptyMessage }}</span>
       <div class="options">
         <ul>
           <li

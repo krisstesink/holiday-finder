@@ -7,7 +7,7 @@
         :items="countryArray"
         placeholder="Select Country"
         searchPlaceholder="Search for a country"
-        emptyMessage="No country found"
+        emptyMessage="No country with that name was found"
         @itemSelected="$emit('itemSelected', $event)"
       />
       

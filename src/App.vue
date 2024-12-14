@@ -1,6 +1,12 @@
 <template>
-  <CountrySearchComponent @itemSelected="onCountrySelected"/>
-  <ListComponent :items="holidays"/>
+  <div class = "navbar">
+    <CountrySearchComponent @itemSelected="onCountrySelected"/>
+  </div>
+
+  <div class = "main-content">
+    <ListComponent :items="holidays"/>
+  </div>
+  
 </template>
 
 <script>
@@ -48,5 +54,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.main-content {
+  margin-top: 30px; /* Ensure the content starts below the navbar */
 }
 </style>
