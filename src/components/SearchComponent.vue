@@ -1,7 +1,11 @@
 <template>
+  
   <section class="dropdown-wrapper">
     <div @click="toggleDropdown" class="selected-item">
-      <span v-if="selectedItem">{{ selectedItem }}</span>
+      <span v-if="selectedItem">
+        <span :class="`fi fi-${selectedItem.countryCode.toLowerCase()}`"></span>
+        {{ selectedItem.name }}
+      </span>
       <span v-else>{{ placeholder }}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +30,9 @@
             :key="`item-${index}`"
             @click="selectItem(item)"
           >
+          <span :class="`fi fi-${item.countryCode.toLowerCase()}`"></span>
             {{ item.name }}
+          
           </li>
         </ul>
       </div>
@@ -36,6 +42,7 @@
 
 <script>
 import "@/assets/SearchComponentStyles.scss";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
   props: {
@@ -77,9 +84,10 @@ export default {
   methods: {
     toggleDropdown() {
       this.isVisible = !this.isVisible;
+      this.searchQuery = "";
     },
     selectItem(item) {
-      this.selectedItem = item.name;
+      this.selectedItem = item;
       this.isVisible = false;
       this.$emit("itemSelected", item); 
     },

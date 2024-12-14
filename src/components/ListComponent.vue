@@ -31,7 +31,7 @@ export default {
 
 <style>
 .list-wrapper {
-    padding: 20px;
+    padding: 50px;
 }
 .table {
     width: 100%;

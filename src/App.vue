@@ -1,5 +1,5 @@
 <template>
-  <CountrySearchComponent @itemSelected="handleItemSelected"/>
+  <CountrySearchComponent @itemSelected="onCountrySelected"/>
   <ListComponent :items="holidays"/>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
 
   methods: {
-    async handleItemSelected(item) {
+    async onCountrySelected(item) {
       console.log("assdfads")
       try {
         const response = await fetch("https://date.nager.at/api/v3/PublicHolidays/2025/" + item.countryCode);
