@@ -40,26 +40,27 @@ export default {
         },
     },
     methods: {
-        async getWikipediaLink(query) {
-      const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(
+    async getWikipediaLink(query) {
+        query = query + " holiday"  
+        const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(
         query
-      )}&format=json&origin=*`;
-      try {
+        )}&format=json&origin=*`;
+        try {
         const response = await fetch(url);
         const data = await response.json();
         const article = data.query.search[0]; // Take the first search result
         if (article) {
-          const articleTitle = encodeURIComponent(article.title);
-          const articleUrl = `https://en.wikipedia.org/wiki/${articleTitle}`;
-          // Update the holiday object with the Wikipedia link
-          window.open(articleUrl, "_blank");
+            const articleTitle = encodeURIComponent(article.title);
+            const articleUrl = `https://en.wikipedia.org/wiki/${articleTitle}`;
+            // Update the holiday object with the Wikipedia link
+            window.open(articleUrl, "_blank");
 
         } else {
-          console.log("No articles found for", query);
+            console.log("No articles found for", query);
         }
-      } catch (error) {
+        } catch (error) {
         console.error("Error fetching Wikipedia link:", error);
-      }
+        }
     },
     }
 
