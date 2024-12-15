@@ -14,8 +14,31 @@ Sort
     d="M21 4V6H20L15 13.5V22H9V13.5L4 6H3V4H21ZM6.4037 6L11 12.8944V20H13V12.8944L17.5963 6H6.4037Z"></path></svg>
     Filter
 </button>
+
+
+<DropdownComponent title="Filter" :options="sortingOptions"/>
+
 </div>
 </template>
+
+<script>
+import DropdownComponent from './DropdownComponent.vue';
+
+export default {
+    data() {
+        return {
+            sortingOptions: ["a", "b"]
+        }
+    },
+
+    components: {
+    DropdownComponent
+    },
+}
+
+
+</script>
+
 
 <style scoped>
 .btn-group {
