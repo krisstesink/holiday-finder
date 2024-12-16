@@ -7,6 +7,7 @@
       data-bs-toggle="dropdown" 
       aria-expanded="false"
     >
+    <slot></slot>
       {{ title }}
     </button>
     
@@ -46,7 +47,7 @@ export default {
   },
   methods: {
     onOptionSelect(option) {
-      this.$emit("select", option);
+      this.$emit("update:sorting", option);
       this.selectedOption = option
     },
   },
@@ -55,6 +56,25 @@ export default {
 
 <style scoped>
   .selected {
-    background-color: green
+    background: #70878b;
+    color: white;
+    font-weight: bold;
   }
+  .btn {
+    font-size: 18px;
+    background-color: #181a2a;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); 
+  }
+  .dropdown-item{
+    width: 100%;
+
+    font-size: 17px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+          background: #70878b;
+          color: white;
+          font-weight: bold;
+        }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <section v-if="items" class="list-wrapper container mt-4">
-        <SortAndFilterComponent/>
+        <SortAndFilterComponent @update:range="handleUpdateRange" @update:sorting="handleUpdateSorting"/>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -62,7 +62,16 @@ export default {
         console.error("Error fetching Wikipedia link:", error);
         }
     },
+
+    handleUpdateRange(range) {
+        this.$emit("update:range", range);
+    },
+    handleUpdateSorting(sorting) {
+        this.$emit("update:sorting", sorting)
     }
+
+}
+    
 
 
 };
